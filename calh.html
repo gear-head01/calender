@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jewellery Shop Calendar</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <div class="calendar">
+        <div class="header">
+            <button class="prev">&lt;</button>
+            <div class="month-year">January 2024</div>
+            <button class="next">&gt;</button>
+        </div>
+        <div class="weekdays">
+            <div>Sun</div>
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
+        </div>
+        <div class="days-container">
+            <div class="days" id="month-0">
+                <!-- January Days -->
+            </div>
+            <div class="days" id="month-1" style="display:none;">
+                <!-- February Days -->
+            </div>
+            <div class="days" id="month-2" style="display:none;">
+                <!-- March Days -->
+            </div>
+            <div class="days" id="month-3" style="display:none;">
+                <!-- April Days -->
+            </div>
+            <div class="days" id="month-4" style="display:none;">
+                <!-- May Days -->
+            </div>
+            <div class="days" id="month-5" style="display:none;">
+                <!-- June Days -->
+            </div>
+            <div class="days" id="month-6" style="display:none;">
+                <!-- July Days -->
+            </div>
+            <div class="days" id="month-7" style="display:none;">
+                <!-- August Days -->
+            </div>
+            <div class="days" id="month-8" style="display:none;">
+                <!-- September Days -->
+            </div>
+            <div class="days" id="month-9" style="display:none;">
+                <!-- October Days -->
+            </div>
+            <div class="days" id="month-10" style="display:none;">
+                <!-- November Days -->
+            </div>
+            <div class="days" id="month-11" style="display:none;">
+                <!-- December Days -->
+            </div>
+        </div>
+    </div>
+    <script>
+        const monthNames = [
+            'January', 'February', 'March', 'April', 'May', 'June',
+            'July', 'August', 'September', 'October', 'November', 'December'
+        ];
+
+        const auspiciousDays = {
+            0: { // January
+                1: 'New Year\'s Day',
+                26: 'Republic Day'
+            },
+            1: { // February
+                14: 'Valentine\'s Day'
+            },
+
+            6: { // February
+                14: 'Valentine\'s Day'
+            },
+
+            7: { // February
+                14: 'Valentine\'s Day'
+            },
+            // Add more auspicious days for other months here...
+        };
+
+        let currentDate = new Date();
+        let currentMonth = currentDate.getMonth();
+        let currentYear = currentDate.getFullYear();
+
+        const daysContainers = document.querySelectorAll('.days');
+        const monthYearDisplay = document.querySelector('.month-year');
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+
+        function renderCalendar() {
+            daysContainers.forEach((container, index) => {
+                container.innerHTML = '';
+                if (index === currentMonth) {
+                    container.style.display = 'grid';
+                } else {
+                    container.style.display = 'none';
+                }
+
+                const firstDay = new Date(currentYear, index, 1).getDay();
+                const lastDate = new Date(currentYear, index + 1, 0).getDate();
+
+                for (let i = 0; i < firstDay; i++) {
+                    container.innerHTML += '<div class="day empty"></div>';
+                }
+
+                for (let i = 1; i <= lastDate; i++) {
+                    const note = auspiciousDays[index] && auspiciousDays[index][i] ? `<div class="note">${auspiciousDays[index][i]}</div>` : '';
+                    container.innerHTML += `
+                        <div class="day">
+                            <div class="date">${i}</div>
+                            ${note}
+                        </div>`;
+                }
+            });
+
+            monthYearDisplay.textContent = `${monthNames[currentMonth]} ${currentYear}`;
+        }
+
+        prevButton.addEventListener('click', () => {
+            currentMonth--;
+            if (currentMonth < 0) {
+                currentMonth = 11;
+                currentYear--;
+            }
+            renderCalendar();
+        });
+
+        nextButton.addEventListener('click', () => {
+            currentMonth++;
+            if (currentMonth > 11) {
+                currentMonth = 0;
+                currentYear++;
+            }
+            renderCalendar();
+        });
+
+        renderCalendar();
+    </script>
+</body>
+</html>
