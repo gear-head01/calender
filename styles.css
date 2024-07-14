@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f3f3f3;
+    margin: 0;
+}
+
+.calendar {
+    width: 80%;
+    max-width: 800px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #ffcc00;
+    color: #fff;
+}
+
+.header button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.month-year {
+    font-size: 18px;
+}
+
+.weekdays, .days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+}
+
+.weekdays div {
+    padding: 5px 0;
+    background-color: #f7f7f7;
+    font-weight: bold;
+}
+
+.days {
+    padding: 5px;
+}
+
+.days .day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    margin: 2px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    height: 80px;
+    position: relative;
+    background-color: #fff;
+}
+
+.days.day.date {
+    font-size: 20px; /* Adjust the font size as desired */
+    font-weight: bold; /* Optionally add bold for emphasis */
+    margin-bottom: 10px;
+}
+
+
+.days .day .note {
+    font-size: 10px;
+    color: #ff0000;
+    margin-bottom: 5px;
+}
+
+.days .day:hover {
+    background-color: #ffcc00;
+    color: #fff;
+    transition: background-color 0.3s;
+}
