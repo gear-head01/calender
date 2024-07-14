@@ -71,7 +71,7 @@ body {
 
 .calendar {
     width: 100%; /* Adjust the width as per your preference */
-    max-width: 500px; /* Adjust the max-width as per your preference */
+    max-width: 300px; /* Adjust the max-width as per your preference */
     border: 1px solid #ccc;
     border-radius: 10px;
     overflow: hidden;
