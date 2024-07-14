@@ -8,15 +8,7 @@ body {
     margin: 0;
 }
 
-.calendar {
-    width: 80%;
-    max-width: 800px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    overflow: hidden;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
+
 
 .header {
     display: flex;
@@ -55,18 +47,7 @@ body {
     padding: 5px;
 }
 
-.days .day {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 5px;
-    margin: 2px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    height: 80px;
-    position: relative;
-    background-color: #fff;
-}
+
 
 .days.day.date {
     font-size: 20px; /* Adjust the font size as desired */
@@ -85,4 +66,35 @@ body {
     background-color: #ffcc00;
     color: #fff;
     transition: background-color 0.3s;
+}
+
+
+.calendar {
+    width: 70%; /* Adjust the width as per your preference */
+    max-width: 600px; /* Adjust the max-width as per your preference */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.days .day .date {
+    font-size: 20px; /* Adjust the font size as desired */
+    font-weight: bold; /* Optionally add bold for emphasis */
+    margin-bottom: 5px; /* Adjust margin to reduce space */
+    padding: 2px; /* Adjust padding to reduce space */
+}
+
+.days .day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    margin: 2px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    height: 80px;
+    position: relative;
+    background-color: #fff;
 }
